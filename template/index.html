@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Coordinates Capture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Mouse Coordinates Capture</h1>
+    <p>Move your mouse and see the pixel coordinates below:</p>
+    <div id="output">X: 0, Y: 0</div>
+
+    <br><br>
+    <label for="amount">Enter Amount:</label>
+    <input type="number" id="amount" placeholder="Enter amount">
+    <button id="payButton" onclick="submit()">Pay</button>
+
+
+    <script>
+        const mortonDataArray = []
+
+        $(document).mousemove(function (event) {
+            const x = event.clientX;
+            const y = event.clientY;
+            $('#output').text(`X: ${x}, Y: ${y}`);
+            //console.log(`X: ${x}, Y: ${y}`)
+            mortonDataArray.push(mortonOrder(x, y))
+        });
+
+        //Function to convert 2D data into 1D
+        function mortonOrder(x, y) {
+            let k = 0;
+            const bits = 32;
+
+            for (let i = 0; i < bits; i++) {
+                k |= (x & (1 << i)) | ((y & (1 << i)) << 1);
+            }
+            return k;
+        }
+
+        function submit() {
+             // Make a POST request to the Flask backend
+             fetch('http://127.0.0.1:8090/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(mortonDataArray) // Convert array to JSON string
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data); // Log the success response
+            })
+            .catch((error) => {
+                console.error('Error:', error); // Log any errors
+            });
+        }
+    </script>
+
+    <!-- <div>
+        <br>
+        <h4><b>{{pred}}</b></h4>
+    </div>
+    <br> -->
+</body>
+
+</html>
