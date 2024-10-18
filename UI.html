@@ -6,109 +6,188 @@
         content="width=device-width , initial-scale=1.0">
     <title>Worldpay Payment Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="script.js" ></script>
 </head>
 
-<body class="bg-blue-400">
+<body class="h-16 bg-gradient-to-r from-violet-300 to-red-300">
 
 <nav class="bg-black text-white text-center">
     <ul class="px-20 py-4 flex space-x-6 justify-around">
-        <li class="cursor-pointer font-extrabold text-2xl">Worldpay</li>
+        <li class="cursor-pointer font-extrabold text-3xl text-red-500">Worldpay</li>
         <li></li>
         <li></li>
-        <li class="cursor-pointer">Solutions we offer</li>
-        <li class="cursor-pointer">Resources</li>
-        <li class="cursor-pointer">Explore</li>
-        <li class="cursor-pointer">Careers</li>
+        <li class="cursor-pointer text-xl">Solutions we offer</li>
+        <li class="cursor-pointer text-xl">Resources</li>
+        <li class="cursor-pointer text-xl">Explore</li>
+        <li class="cursor-pointer text-xl">Feedback</li>
         <li class="px-4 py-1 bg-red-500 text-white
-             rounded-md hover:bg-red-700 cursor-pointer">Contact Us</li>
+             rounded-md hover:bg-red-700 cursor-pointer
+             shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+             transition-transform duration-300 transform hover:scale-105 hover:shadow-lg">Contact Us</li>
     </ul>
 </nav>
 <div class="flex justify-evenly">
-    <form action="#" class=" mt-20 mx-10 bg-blue-200 p-20 rounded-2xl shadow-2xl">
+    <form action="#" id="form" class=" mt-20 mx-10 bg-blue-200 p-20 rounded-2xl shadow-2xl">
         <div>
-            <h1 class="text-2xl font-bold text-black-600 mb-4">Payment Details</h1>
+            <h1 class="text-3xl font-bold text-black-600 mb-4">Payment Details</h1>
         <div class="mb-4">
             <label for="cardName"
-                class="block text-sm font-bold text-black-600">
-                Name On Card:
+                class="block text-xl font-bold
+                text-black-600">
+                Cardholder's Name:
             </label>
             <input type="text" id="cardName"
                     placeholder="Enter Name"
-                    required
-                    class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-red-500">
+                    class=" w-full p-2 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                   required>
         </div>
             <div class="mb-4">
                 <label for="cardNumber"
-                       class="block text-sm font-bold text-black-600">
+                       class="block text-xl font-bold
+                       text-black-600">
                     Enter Card Number:
                 </label>
                 <input type="text" id="cardNumber"
                        placeholder="12xx-xxxx-xxxx-xx34"
-                       required
-                       class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-red-500">
+                       class=" w-full p-2 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                    required>
             </div>
             <div class="flex justify-between mb-4">
                 <div class="w-1/2 mr-2">
                 <label for="expMonth"
-                       class="block text-sm font-bold text-black-600">
+                       class="block text-xl font-bold
+                       text-black-600">
                     Expiration Month:
                 </label>
                 <input type="text" id="expMonth"
                        placeholder="MM"
-                       required
-                       class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-black-500">
+                       class=" w-full p-1 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                       required>
                 </div>
-                <div class="w-1/2">
+                <div class="w-1/2 ml-2">
                     <label for="expYear"
-                           class="block text-sm font-bold text-black-600">
+                           class="block text-xl
+                            font-bold
+                            text-black-600">
                         Expiration Year:
                     </label>
                     <input type="text" id="expYear"
                            placeholder="YYYY"
-                           required
-                           class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-black-500">
+                           class=" w-full p-1 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                           required>
+<!--                           class="mt-1 block w-full-->
+<!--                            border-gray-300 rounded-md-->
+<!--                            focus:border-black-500">-->
                 </div>
             </div>
             <div class="mb-4">
-                <label for="CVV"
-                       class="block text-sm font-bold text-black-600">
+                <label for="cvv"
+                       class="block text-xl
+                       font-bold
+                       text-black-600">
                     CVV:
                 </label>
-                <input type="text" id="CVV"
+                <input type="text" id="cvv"
                        placeholder="Enter CVV"
-                       required
-                       class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-red-500">
+                       class=" w-full p-2 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                       required>
+<!--                       class="mt-1 block w-full-->
+<!--                            border-gray-300 rounded-md-->
+<!--                            focus:border-red-500">-->
             </div>
             <div class="mb-4">
-                <label for="Amount"
-                       class="block text-sm font-bold text-black-600">
+                <label for="amount"
+                       class="block text-xl
+                       font-bold
+                       text-black-600">
                     Amount:
                 </label>
-                <input type="text" id="Amount"
+                <input type="text" id="amount"
                        placeholder="Enter Amount in USD"
-                       required
-                       class="mt-1 block w-full
-                            border-gray-300 rounded-md
-                            focus:border-red-500">
+                       class=" w-full p-2 border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2
+                    focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg"
+                       required>
+<!--                       class="mt-1 block w-full-->
+<!--                            border-gray-300 rounded-md-->
+<!--                            focus:border-red-500">-->
             </div>
         </div>
+
+            <div id="modal" class="fixed inset-1/4 bg-opacity-10
+                hidden justify-center items-center rounded-lg shadow-sm focus:outline-none focus:ring-2
+                 focus:ring-blue-500 transition-transform duration-300 transform hover:scale-105 hover:shadow-lg">
+                <div class="flex justify-center items-center h-full w-full rounded-lg">
+                        <div class="bg-white rounded-lg p-8 w-1/2 fade-in
+                            modal-content z-40">
+                            <div class="mb-3 flex justify-center">
+                            <img src="template/Images/payment_failed.PNG" alt="" class="object-scale-down">
+                            </div>
+                            <div class="flex font-extrabold justify-center">
+                                Reason : Fraudulent Transaction
+                            </div>
+                            <div class="flex justify-center mt-8">
+                                <button id="closeModal" class="bg-red-700 text-white px-4 py-2 rounded-lg
+                                   shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500
+                                   transition-transform duration-300 transform hover:scale-105 hover:shadow-lg">
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+
         <input type="submit" value="Proceed to Checkout"
             id="checkoutBtn"
-            class="mt-4 px-5 py-2 bg-red-600 text-white
-                    rounded-md hover:bg-red-700">
+            class="mt-4 px-5 py-2 bg-blue-600 text-white
+                    rounded-md hover:bg-blue-700 shadow-sm
+                    focus:outline-none focus:ring-2 focus:ring-blue-500
+                    transition-transform duration-300 transform hover:scale-105 hover:shadow-lg">
     </form>
 </div>
 </body>
+<script>
+        document.getElementById("checkoutBtn")
+                .addEventListener('click' ,function(event){
+                event.preventDefault();
+                const cardName=document.getElementById('cardName').value;
+                const cardNumber=document.getElementById('cardNumber').value;
+                const expiryYear=document.getElementById('expYear').value;
+                const expiryMonth=document.getElementById('expMonth').value;
+                const cvv=document.getElementById('cvv').value;
+                const amount=document.getElementById('amount').value;
+                const open=document.getElementById('modal');
+               const closed=document.getElementById('closeModal');
 
+<!--               check if any field is empty-->
+          if(cardName==="" || cardNumber==="" || expiryYear==="" || expiryMonth==="" || cvv==="" || amount==="" ){
+              alert("Please fill all the fields");
+              return;
+          }
+          if(cardNumber.length <14 || expiryMonth.length !=2 || expiryYear.length!==4 || cvv.length!==3){
+               alert("Enter Correct Details");
+               return;
+          }
+
+          function successPaymentWindow(){
+                window.open('success.html');
+          }
+          if(cardName === "Rutwij"){
+                successPaymentWindow();
+          }
+          else{
+                open.classList.remove('hidden');
+                closed.addEventListener("click", ()=>{
+                open.classList.add('hidden');
+                document.getElementById("form").reset();
+                });
+             }
+          });
+</script>
 
 </html>
